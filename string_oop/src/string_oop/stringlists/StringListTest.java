@@ -16,6 +16,13 @@ class StringListTest {
 		StringList myStringList = new StringList(myStrings);
 		assertArrayEquals(new String[] {hello, world}, myStringList.getElements());
 		assertArrayEquals(new char[] {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!'}, myStringList.getConcatenation().toArray());
+		
+		myStrings[0] = null;
+		assertArrayEquals(new char[] {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!'}, myStringList.getConcatenation().toArray());
+		
+		String[] yourStrings = myStringList.getElements();
+		yourStrings[0] = null;
+		assertArrayEquals(new char[] {'h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!'}, myStringList.getConcatenation().toArray());
 	}
 
 }

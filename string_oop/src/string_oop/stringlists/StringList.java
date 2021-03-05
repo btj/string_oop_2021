@@ -1,5 +1,7 @@
 package string_oop.stringlists;
 
+import java.util.Arrays;
+
 import string_oop.String;
 
 /**
@@ -7,8 +9,16 @@ import string_oop.String;
  * 
  */
 public class StringList {
+	
+	/**
+	 * @invar | elements != null
+	 * @invar Arrays.stream(elements).allMatch(e -> e != null)
+	 * 
+	 * @representationObject
+	 */
+	private String[] elements;
 
-	public String[] getElements() { throw new RuntimeException("Not yet implemented"); }
+	public String[] getElements() { return elements.clone(); }
 	
 	public String getConcatenation() {
 		String[] elements = getElements();
@@ -19,6 +29,6 @@ public class StringList {
 		return result;
 	}
 	
-	public StringList(String[] elements) { throw new RuntimeException("Not yet implemented"); }
+	public StringList(String[] elements) { this.elements = elements.clone(); }
 	
 }
